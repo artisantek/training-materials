@@ -12,6 +12,30 @@ SonarQube is an open-source platform for continuous inspection of code quality. 
 - **Coverage** - Test coverage analysis
 - **Duplications** - Duplicate code blocks
 
+### SonarQube Minimum required resources
+
+**SonarQube requires at least:**
+
+1. **RAM:**
+- Minimum 2 GB free RAM
+- Recommended 4 GB or more for stable performance
+
+2. **CPU:**
+Minimum 1 vCPU
+Recommended 2+ vCPUs for production use
+
+3. **Java Heap:**
+- At least 1 GB allocated to the JVM (-Xmx1G)
+
+4. **Network Port:**
+- Port 9000 must be free and open (default web interface port)
+
+5. **Disk Space:**
+- Ensure sufficient disk for logs, plugins, and indexing (~5–10 GB minimum for small projects)
+
+6. **Database:**
+- Properly configured and reachable (default is embedded H2 for testing only; use PostgreSQL for production)
+
 ### Key Benefits
 - **Early Detection** - Find issues before they reach production
 - **Quality Standards** - Enforce coding standards across teams
