@@ -15,6 +15,7 @@ Foundation concepts for working with Jenkins
 - **[Understanding Job Types](./01-getting-started/01-job-types.md)** - Freestyle, Pipeline, Multibranch, and more
 - **[Job Configuration Guide](./01-getting-started/02-job-configuration.md)** - Complete configuration walkthrough
 - **[Parameterized Builds](./01-getting-started/03-parameterized-builds.md)** - Making jobs flexible with parameters
+- **[CI/CD and Jenkinsfile Guide](./01-getting-started/04-cicd-and-jenkinsfile.md)** - Understanding CI/CD concepts and Pipeline as Code
 
 ### 02 - Build Automation
 Automate your build processes effectively
@@ -22,6 +23,9 @@ Automate your build processes effectively
 - **[Cron Scheduling](./02-build-automation/02-cron-scheduling.md)** - Master Jenkins scheduling syntax with Hash
 - **[Background Processes](./02-build-automation/03-background-processes.md)** - Managing long-running tasks
 - **[Jenkins Pipeline](./02-build-automation/04-jenkins-pipeline.md)** - Pipeline as Code with Jenkinsfile
+- **[SonarQube Integration](./02-build-automation/05-sonarqube-integration.md)** - Code quality analysis with SonarQube
+- **[JFrog Artifactory Integration](./02-build-automation/06-jfrog-integration.md)** - Artifact management with JFrog Artifactory
+- **[CI/CD Testing Strategies](./02-build-automation/07-ci-testing-strategies.md)** - Comprehensive guide to testing in CI/CD pipelines
 
 ### 03 - Setup and Configuration
 Infrastructure and integration setup
@@ -69,6 +73,11 @@ Jenkins/
 ├── 04-security-and-plugins/   # Security & Extensions
 └── images/                    # All screenshots and diagrams
 ```
+
+## 📋 Hands-on Assignments
+
+Practice your Jenkins skills with real-world scenarios:
+- **[Jenkins Assignments](./Jenkins-Assignments.md)** - 6 progressive assignments from Freestyle jobs to Multibranch pipelines
 
 ## 🤝 Contributing
 
