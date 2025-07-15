@@ -122,6 +122,36 @@ flowchart TD
     linkStyle 14 stroke-width:10px
 ```
 
+## Few Screenshot Explanations
+**Reboot Instance Option:**
+- **Enable Reboot (default):** Briefly shuts down your instance during AMI creation to ensure a consistent and reliable image. This causes a few minutes of downtime.
+- **No Reboot:** Creates the image while the instance is running, avoiding downtime, but may result in an inconsistent or corrupted AMI if data is not fully written to disk.
+
+**Delete on Termination:**
+- This setting controls whether the EBS volume (virtual hard drive) is deleted when the instance is terminated.
+    - **Checked:** The volume is deleted with the instance (recommended for OS disks to avoid extra costs).
+    - **Unchecked:** The volume is preserved after termination (important for keeping critical data).
+
+---
+
+**What is a Snapshot?**  
+*A backup of a single EBS volume (hard drive).*
+
+- **Purpose:** To save the data on that drive. If the drive fails or files are deleted, you can restore from the snapshot.
+- **Contains:** Only the data from that one drive.
+- **Use Case:** Data safety and recovery.  
+  > *Note: You cannot launch a full server from just a snapshot—you need more information.*
+
+
+- **Purpose:** To launch new, identical servers quickly. For example, after configuring a web server, you can create an AMI and launch many identical servers in minutes.
+- **Contains:**
+    - **Snapshots:** Backups of the hard drive(s).
+    - **Server Settings:** Size, memory, security group, etc.
+    - **Permissions:** Who can use the AMI.
+- **Use Case:** Cloning servers and creating standardized starting points for new instances.
+
+
+
 ## 📋 Process Flow
 
 ### 🔧 Phase 1: Creating Custom AMI
