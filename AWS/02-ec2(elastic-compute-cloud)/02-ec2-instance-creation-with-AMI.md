@@ -56,7 +56,7 @@ flowchart TD
     L@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/02-ec2(elastic-compute-cloud)/images/AMI-Pre-selection.png", h: 698, w: 2494, pos: "t"}
     M@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/02-ec2(elastic-compute-cloud)/images/AMI-Wizard.png", h: 828, w: 2140, pos: "t"}
     N@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/02-ec2(elastic-compute-cloud)/images/Create-AMI.png", h: 1212, w: 2070, pos: "t"}
-    O@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/02-ec2(elastic-compute-cloud)/images/AMI-State.png", h: 1136, w: 2612, pos: "t"}
+    O@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/02-ec2(elastic-compute-cloud)/images/AMI-state.png", h: 1136, w: 2612, pos: "t"}
     P@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/02-ec2(elastic-compute-cloud)/images/Launch-instance-using-ami.png", h: 964, w: 1784, pos: "t"}
     
     style A fill:#e1f5fe,font-size:30px
