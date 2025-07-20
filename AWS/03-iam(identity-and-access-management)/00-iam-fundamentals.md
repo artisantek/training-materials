@@ -72,8 +72,7 @@ Let's break down the diagram above:
 This comprehensive guide covers AWS Identity and Access Management (IAM) fundamentals, including users, groups, roles, policies, and security best practices.
 
 ## What is IAM and Why Do We Need It?
-
-AWS Identity and Access Management (IAM) is a foundational AWS service that provides secure, centralized control over access to AWS services and resources. It enables you to manage authentication for identities and authorization for permissions through a unified system of users, groups, roles, and policies.
+AWS IAM is a web service that helps you securely control access to AWS resources. It enables you to manage authentication (who is signed in) and authorization (what resources they can access) for permissions through a unified system of users, groups, roles, and policies.
 
 Think of **IAM (Identity and Access Management)** as the **security system** for your AWS account. Just like a building has security guards, key cards, and different access levels for different areas, IAM controls **who can access what** in your AWS environment.
 
