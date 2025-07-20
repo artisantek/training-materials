@@ -33,7 +33,7 @@ Authorization occurs **after** successful authentication. It is based on the pol
 
 # How IAM Works: Authentication vs Authorization
 
-        ![How IAM Works](images/How-IAM-works.png)
+  ![How IAM Works](images/How-IAM-works.png)
 
 
 Let's break down the diagram above:
