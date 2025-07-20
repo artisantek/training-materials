@@ -29,16 +29,8 @@ Authorization occurs **after** successful authentication. It is based on the pol
 
 
 <img src="images/auth-vs-auth.png" alt="Authentication vs Authorization" width="400"/>
----
-
-> **🔑 Authentication vs Authorization: Key Concepts**
 
 ---
-
-<img src="images/auth-vs-auth.png" alt="Authentication vs Authorization" width="400"/>
-
----
-
 
 # How IAM Works: Authentication vs Authorization
 
