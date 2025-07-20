@@ -115,7 +115,7 @@ IAM is not just a feature; it's a foundational pillar of a well-architected AWS 
 
 Principals are entities that can make requests to AWS services.
 
-## 1. 👤 IAM Users: The Foundation of Identity in AWS
+## 1. IAM Users: The Foundation of Identity in AWS
 
 An **IAM User** is an entity you create in AWS to represent a person (like an administrator or developer) or an application that needs long-term, persistent access to your AWS resources. Each user has a unique identity and its own set of security credentials.
 
@@ -165,7 +165,7 @@ A user can be configured with console access, programmatic access, or both, depe
 | **Sarah (Manager)** | Console Only | Needs to view dashboards and reports, not code. |
 | **🤖 BackupApp** | Programmatic Only | An automated script that needs API access to S3. |
 
-## 2. 👥 IAM Groups: Managing Permissions at Scale
+## 2.  IAM Groups: Managing Permissions at Scale
 
 An **IAM Group** is a collection of IAM users. Instead of attaching permission policies directly to individual users, you can attach them to a group. Any user placed in that group automatically inherits the permissions assigned to it, providing a powerful and efficient way to manage access for multiple users at once.
 
@@ -226,7 +226,7 @@ This shows how individual users are organized into functional groups.
     └── 👤 Tom (Product Manager)
 ```
 
-## 3. 🎭 IAM Roles: Secure, Temporary Access in AWS
+## 3. IAM Roles: Secure, Temporary Access in AWS
 
 An **IAM Role** is a secure way to grant temporary permissions to entities that you trust. Unlike an IAM user, a role does not have its own permanent credentials (like a password or access keys). Instead, when an entity assumes a role, it receives temporary security credentials for that session.
 
@@ -289,7 +289,7 @@ When you want to grant access to users from an external identity provider (IdP).
 - **Trust Policy:** Trusts the Lambda service (`lambda.amazonaws.com`) to assume this role.
 - **Permissions Policy:** Grants permissions to create log streams in CloudWatch Logs and perform `GetItem`/`PutItem` actions on a specific DynamoDB table.
 
-## 4. 📋 IAM Policies: The Language of Permissions
+## 4. IAM Policies: The Language of Permissions
 
 **IAM Policies** are the heart of authorization in AWS. They are formal documents, written in JSON, that explicitly define permissions. Every time a user or service makes a request in AWS, their permissions are evaluated based on the policies attached to their identity and the resource they are trying to access.
 
@@ -455,23 +455,7 @@ bob-developer (in Developers group)
 1. Check the role's trust policy
 2. Verify the assuming entity has `sts:AssumeRole` permission
 3. Confirm any required conditions are met
-
 ---
-
-# 🎯 Next Steps
-
-After understanding IAM fundamentals:
-
-1. **🛠️ Hands-On Practice**: Create users, groups, and roles in your account
-2. **📋 Policy Creation**: Write custom policies for your specific needs
-3. **🔄 Automation**: Learn about IAM automation with CloudFormation/Terraform
-4. **🔍 Advanced Topics**: Explore IAM Identity Center, SAML federation
-5. **📊 Monitoring Setup**: Implement comprehensive IAM monitoring
-6. **🎓 Certification**: Consider AWS security-focused certifications
-7. **📚 Advanced Learning**: Explore cross-account access patterns and enterprise IAM strategies
-
----
-
 # 🛡️ IAM Security Best Practices
 
 Securing your AWS environment starts with a robust Identity and Access Management (IAM) strategy. Following these best practices is essential for protecting your resources, controlling costs, and meeting compliance requirements.
@@ -539,10 +523,18 @@ Understanding how permissions are evaluated is critical. The logic always follow
 - **IAM is a Global Service:** IAM users, groups, and roles are created globally; you do not create them in a specific region.
 - **Service-Specific Authorization:** Some services, like Amazon S3, have their own resource-based authorization mechanisms (e.g., Bucket Policies, Access Control Lists) that work in conjunction with IAM policies.
 - **Policy Size Limits:** Be aware that IAM entities (users, groups, roles) and policies have size limits. Keep policies concise and well-structured.
+---
 
+# 🎯 Next Steps
 
+After understanding IAM fundamentals:
 
+1. **🛠️ Hands-On Practice**: Create users, groups, and roles in your account
+2. **📋 Policy Creation**: Write custom policies for your specific needs
+3. **🔄 Automation**: Learn about IAM automation with CloudFormation/Terraform
+4. **🔍 Advanced Topics**: Explore IAM Identity Center, SAML federation
+5. **📊 Monitoring Setup**: Implement comprehensive IAM monitoring
+6. **🎓 Certification**: Consider AWS security-focused certifications
+7. **📚 Advanced Learning**: Explore cross-account access patterns and enterprise IAM strategies
 
-
-
-
+---
