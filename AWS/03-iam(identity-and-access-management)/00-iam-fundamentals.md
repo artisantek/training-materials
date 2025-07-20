@@ -28,11 +28,13 @@ Authorization occurs **after** successful authentication. It is based on the pol
 > **Note:** You can be authenticated but have zero authorization to do anything.
 
 
-![Authentication vs Authorization](images/auth-vs-auth.png)
+<img src="images/auth-vs-auth.png" alt="Authentication vs Authorization" width="400"/>
+
+
+### How IAM Works: Authentication vs Authorization
 
 ![How IAM Works](images/How-IAM-works.png)
 
-### How IAM Works: Authentication vs Authorization
 
 Let's break down the diagram above:
 
