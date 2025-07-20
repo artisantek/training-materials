@@ -31,9 +31,9 @@ Authorization occurs **after** successful authentication. It is based on the pol
 <img src="images/auth-vs-auth.png" alt="Authentication vs Authorization" width="400"/>
 
 
-### How IAM Works: Authentication vs Authorization
+# How IAM Works: Authentication vs Authorization
 
-![How IAM Works](images/How-IAM-works.png)
+        ![How IAM Works](images/How-IAM-works.png)
 
 
 Let's break down the diagram above:
