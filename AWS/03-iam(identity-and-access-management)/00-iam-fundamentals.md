@@ -116,6 +116,137 @@ IAM is not just a feature; it's a foundational pillar of a well-architected AWS 
 
 <img src="images/IAM-types.png" alt="IAM Types" width="600"/>
 
+## Principals ("Who")
+Principals are entities that can make requests to AWS services.
+
+### 1. **Users**
+- **Definition:** Individual identities with permanent credentials (username/password or access keys).
+- **Importance:**
+  - Represent actual people or applications.
+  - Each user has unique credentials.
+  - Can be assigned directly to policies or added to groups.
+- **Key Points:**
+  - Follow the principle of least privilege.
+  - Enable MFA for enhanced security.
+  - Rotate access keys regularly.
+  - Maximum **5,000 users** per AWS account.
+
+### 2. **User Groups**
+- **Definition:** Collections of IAM users that share the same permissions.
+- **Importance:**
+  - Simplifies permission management.
+  - Ensures consistent access control.
+  - Makes onboarding/offboarding easier.
+- **Key Points:**
+  - Groups cannot be nested.
+  - Users can belong to multiple groups.
+  - Groups cannot be principals in resource-based policies.
+  - Maximum **300 groups** per account.
+
+### 3. **Roles**
+- **Definition:** Temporary identities with no permanent credentials that can be assumed.
+- **Importance:**
+  - Enable secure cross-account access.
+  - Allow EC2 instances to access AWS services.
+  - Support federation with external identity providers.
+- **Key Points:**
+  - Use STS (Security Token Service) for temporary credentials.
+  - Can be assumed by users, applications, or AWS services.
+  - Include trust policies defining who can assume them.
+  - Session duration configurable (15 min to 12 hours).
+
+---
+
+## Policies ("What")
+Policies are JSON documents that define permissions.
+
+### 1. **Identity-based Policies**
+Attached to users, groups, or roles to grant permissions.
+
+#### a) **AWS Managed Policies**
+- **Definition:** Pre-built policies created and maintained by AWS.
+- **Importance:**
+  - Cover common use cases.
+  - Automatically updated by AWS.
+  - Good starting point for permissions.
+- **Key Points:**
+  - Cannot be modified.
+  - Examples: `AdministratorAccess`, `ReadOnlyAccess`.
+  - Versioned and tracked by AWS.
+
+#### b) **Customer Managed Policies**
+- **Definition:** Custom policies created and maintained by you.
+- **Importance:**
+  - Tailored to specific organizational needs.
+  - Reusable across multiple entities.
+  - Version controlled.
+- **Key Points:**
+  - Maximum 5 versions retained.
+  - Can be attached to multiple entities.
+  - More flexible than inline policies.
+  - Maximum 6,144 characters per policy.
+
+#### c) **Inline Policies**
+- **Definition:** Policies directly embedded into a single user, group, or role.
+- **Importance:**
+  - One-to-one relationship with identity.
+  - Deleted when identity is deleted.
+  - Useful for specific, unique permissions.
+- **Key Points:**
+  - Not reusable.
+  - Harder to manage at scale.
+  - Use sparingly for exceptional cases.
+
+### 2. **Resource-based Policies**
+- **Definition:** Policies attached directly to AWS resources (like S3 buckets, SQS queues).
+- **Importance:**
+  - Enable cross-account access.
+  - Define who can access specific resources.
+  - Complement identity-based policies.
+- **Key Points:**
+  - Always inline policies.
+  - Specify principal in the policy.
+  - Not all services support them.
+  - Examples: S3 bucket policies, Lambda function policies.
+
+---
+
+## Important Best Practices and Considerations
+
+### 1. **Security Best Practices**
+- Enable MFA for all human users.
+- Use roles instead of sharing credentials.
+- Grant least privilege access.
+- Regularly audit and remove unused credentials.
+- Use policy conditions for additional security.
+
+### 2. **Policy Evaluation Logic**
+- **Explicit Deny > Explicit Allow > Implicit Deny**
+- Both identity-based and resource-based policies are evaluated.
+- Permission boundaries can limit maximum permissions.
+
+### 3. **Common Use Cases**
+- **Cross-account access:** Use roles with trust relationships.
+- **EC2 instance access:** Use instance profiles with roles.
+- **Temporary access:** Use STS to generate temporary credentials.
+- **Federation:** Integrate with SAML, OIDC, or Active Directory.
+
+### 4. **Monitoring and Compliance**
+- Use CloudTrail for API logging.
+- Enable Access Analyzer for policy validation.
+- Review IAM credential reports regularly.
+- Use AWS Config for compliance checking.
+
+### 5. **Limitations to Remember**
+- IAM is eventually consistent (changes may take time to propagate).
+- Some services have service-specific authorization (like S3 ACLs).
+- IAM is a global service (not region-specific).
+- Policy size limits exist (be concise in policy documents).
+
+
+
+
+
 ## 1. 👤 IAM Users
 
 ### What are IAM Users?
