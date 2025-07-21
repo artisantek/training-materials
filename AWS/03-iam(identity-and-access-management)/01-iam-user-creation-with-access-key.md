@@ -18,243 +18,166 @@ This comprehensive guide walks you through creating an IAM user with programmati
 
 ---
 
-# 📋 Process Overview
+## 📋 Complete IAM User Creation Process
 
 ```mermaid
 flowchart TD
-    A["🚀 Start IAM User Creation Process"] --> B["Step 1: Access IAM Dashboard<br/>📸 user-1.png"]
-    B --> C["Step 2: Create New User<br/>📸 user-2.png"]
-    C --> D["Step 3: Set User Details & Permissions<br/>📸 user-3.png"]
-    D --> E["Step 4: Configure Access Type<br/>📸 user-4.png"]
-    E --> F["Step 5: Review User Configuration<br/>📸 user-5.png"]
-    F --> G["Step 6: Generate Access Keys<br/>📸 image-6.png"]
-    G --> H["✅ IAM User Creation Complete"]
+    A[Start: AWS Console Login] -----> B[Navigate to IAM Dashboard]
+    B -----> C[Access Users Section]
+    C -----> D[Click Create User]
+    D -----> E[Set User Details & Permissions]
+    E -----> F[Configure Access Type]
+    F -----> G[Review User Configuration]
+    G -----> H[Generate Access Keys]
+    H -----> I[✅ IAM User Creation Complete]
     
-    style A fill:#e1f5fe
-    style H fill:#e8f5e8
-    style B fill:#fff3e0
-    style C fill:#fff3e0
-    style D fill:#fff3e0
-    style E fill:#fff3e0
-    style F fill:#fff3e0
-    style G fill:#fff3e0
+    B@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-1.png", h: 936, w: 2086, pos: "t"}
+    C@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-2.png", h: 1088, w: 2300, pos: "t"}
+    E@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-3.png", h: 1274, w: 2008, pos: "t"}
+    F@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-4.png", h: 708, w: 2002, pos: "t"}
+    G@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-5.png", h: 678, w: 2080, pos: "t"}
+    H@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-6.png", h: 1014, w: 1538, pos: "t"}
+    
+    style A fill:#e1f5fe,font-size:30px
+    style B fill:#c8e6c9,font-size:30px
+    style C fill:#c8e6c9,font-size:30px
+    style D fill:#c8e6c9,font-size:30px
+    style E fill:#c8e6c9,font-size:30px
+    style F fill:#c8e6c9,font-size:30px
+    style G fill:#c8e6c9,font-size:30px
+    style H fill:#c8e6c9,font-size:30px
+    style I fill:#e8f5e8,font-size:30px
+    
+    %% Arrow styling - thick arrows
+    linkStyle default stroke-width:10px
+    linkStyle 0 stroke-width:10px
+    linkStyle 1 stroke-width:10px
+    linkStyle 2 stroke-width:10px
+    linkStyle 3 stroke-width:10px
+    linkStyle 4 stroke-width:10px
+    linkStyle 5 stroke-width:10px
+    linkStyle 6 stroke-width:10px
+    linkStyle 7 stroke-width:10px
 ```
 
----
+## 📋 Process Flow
 
-# 🛠️ Step-by-Step Implementation
-
-## Step 1: Access IAM Dashboard
-
-Navigate to the AWS IAM service to begin creating your new user.
-
-<img src="images/user-1.png" alt="IAM Dashboard Access" width="800"/>
-
-### Actions to Take:
-1. **Sign in** to the AWS Management Console
-2. **Search** for "IAM" in the services search bar
-3. **Click** on "IAM" to access the Identity and Access Management dashboard
-4. **Review** the IAM dashboard overview and navigation options
-
-### Key Points:
-- Ensure you're using an account with IAM user creation permissions
-- The IAM dashboard provides access to users, groups, roles, and policies
-- Take note of the current number of users in your account
+### 🔧 Step-by-Step IAM User Creation
+1. **AWS Console Login** - Access your AWS account
+2. **Navigate to IAM Dashboard** - Go to IAM service 🔑 ✅
+3. **Access Users Section** - Click on Users in left navigation 🔑 ✅
+4. **Click Create User** - Initiate user creation process
+5. **Set User Details & Permissions** - Configure user information 🔑 ✅
+6. **Configure Access Type** - Set programmatic/console access 🔑 ✅
+7. **Review User Configuration** - Verify all settings 🔑 ✅
+8. **Generate Access Keys** - Create and download credentials 🔑 ✅
 
 ---
 
-## Step 2: Create New User
+# 🛠️ Detailed Step Explanations
 
-Initiate the user creation process from the IAM dashboard.
+## Step 1: Navigate to IAM Dashboard
+**Purpose**: Access the AWS Identity and Access Management service
 
-<img src="images/user-2.png" alt="Create New User" width="800"/>
+**Actions**:
+- Sign in to AWS Management Console
+- Search for "IAM" in services
+- Click on IAM to open the dashboard
+- Review the IAM overview interface
 
-### Actions to Take:
-1. **Click** on "Users" in the left navigation panel
-2. **Select** "Add user" or "Create user" button
-3. **Review** existing users (if any) to avoid naming conflicts
-4. **Prepare** to enter user details in the next step
+**Key Points**:
+- Ensure you have administrative permissions
+- Familiarize yourself with the IAM dashboard layout
+- Note the current user count in your account
 
-### Key Points:
-- The Users section shows all existing IAM users
-- Each user is listed with their creation date and attached policies
-- You can manage existing users or create new ones from this interface
+---
+
+## Step 2: Access Users Section
+**Purpose**: Navigate to the user management area
+
+**Actions**:
+- Click "Users" in the left navigation panel
+- Review existing users (if any)
+- Prepare to create a new user
+- Check for naming conflicts
+
+**Important**:
+- Each user should have a unique, descriptive name
+- Review current users to understand naming patterns
+- Plan the new user's purpose and permissions
 
 ---
 
 ## Step 3: Set User Details & Permissions
+**Purpose**: Configure the basic user information and initial permission settings
 
-Configure the basic user information and initial permission settings.
+**Key Configurations**:
+- **Username**: Use descriptive names (e.g., `john-developer`, `api-service-user`)
+- **Access Type**: Choose between console access, programmatic access, or both
+- **Password Settings**: Configure password requirements if console access is enabled
+- **Permission Assignment**: Add to groups, attach policies, or copy from existing user
 
-<img src="images/user-3.png" alt="User Details and Permissions" width="800"/>
-
-### Actions to Take:
-1. **Enter** a unique username for the new user
-   - Use descriptive names (e.g., `john-developer`, `api-service-user`)
-   - Follow your organization's naming conventions
-2. **Choose** access type options:
-   - **Console access**: For human users who need web console access
-   - **Programmatic access**: For applications needing API/CLI access
-3. **Set** console password (if console access enabled):
-   - Generate automatic password or create custom password
-   - Decide if user must reset password on first login
-4. **Configure** initial permissions:
-   - Add user to existing groups
-   - Attach policies directly
-   - Copy permissions from existing user
-
-### Best Practices:
-- **Use descriptive usernames** that indicate the user's purpose
-- **Apply least privilege principle** - grant minimum necessary permissions
-- **Prefer group-based permissions** over direct policy attachments
-- **Enable password reset requirement** for human users
+**Best Practices**:
+- Use descriptive usernames that indicate purpose
+- Apply least privilege principle
+- Prefer group-based permissions over direct policy attachments
+- Enable password reset requirement for human users
 
 ---
 
 ## Step 4: Configure Access Type
+**Purpose**: Specify the type of access the user needs
 
-Specify the type of access the user needs and configure security settings.
+**Access Type Options**:
+- **✅ Programmatic Access**: Generates access key ID and secret access key for API/CLI
+- **⬜ Console Access**: Allows AWS Management Console login via web browser
+- **✅ Both**: User gets both programmatic and console access
 
-<img src="images/user-4.png" alt="Configure Access Type" width="800"/>
-
-### Actions to Take:
-1. **Select Access Type**:
-   - ✅ **Programmatic access**: Generates access key ID and secret access key
-   - ⬜ **Console access**: Allows AWS Management Console login
-   - ✅ **Both**: If user needs both API and console access
-
-2. **Configure Console Access** (if selected):
-   - **Password type**: Auto-generated or custom
-   - **Password reset**: Require password change on first login
-   - **Multi-factor authentication**: Enable MFA for enhanced security
-
-3. **Set Permissions**:
-   - **Add to group**: Recommended approach for permission management
-   - **Attach policies directly**: For specific use cases
-   - **Copy permissions**: From existing user with similar needs
-
-### Security Considerations:
-- **Programmatic access** is ideal for applications, scripts, and CLI usage
-- **Console access** should be limited to human users who need web interface
-- **MFA should be mandatory** for all human users with console access
-- **Groups provide better permission management** than direct policy attachment
+**Security Considerations**:
+- Programmatic access is ideal for applications and scripts
+- Console access should be limited to human users
+- MFA should be mandatory for console users
+- Use temporary credentials when possible
 
 ---
 
 ## Step 5: Review User Configuration
+**Purpose**: Verify all settings before creating the user
 
-Verify all settings before creating the user.
-
-<img src="images/user-5.png" alt="Review User Configuration" width="800"/>
-
-### Actions to Take:
-1. **Review User Details**:
-   - Username correctness
-   - Access type selections
-   - Permission assignments
-
-2. **Verify Security Settings**:
-   - Password policy compliance
-   - MFA requirements
-   - Permission scope
-
-3. **Check Permission Summary**:
-   - Attached policies
-   - Group memberships
-   - Effective permissions
-
-4. **Add Tags** (optional but recommended):
-   - Environment tags (dev, staging, prod)
-   - Department or team tags
-   - Purpose or project tags
-
-5. **Create User**: Click "Create user" to finalize
-
-### Final Checks:
+**Review Checklist**:
 - ✅ Username follows naming conventions
 - ✅ Access type matches intended usage
 - ✅ Permissions follow least privilege principle
 - ✅ Security settings are appropriate
-- ✅ Tags are added for better organization
+- ✅ Tags are added for organization
+
+**Final Actions**:
+- Double-check permission assignments
+- Verify security settings
+- Add descriptive tags
+- Click "Create user" to finalize
 
 ---
 
 ## Step 6: Generate and Secure Access Keys
+**Purpose**: Obtain and securely store the user's access credentials
 
-Obtain and securely store the user's access credentials.
+**Critical Actions**:
+1. **Download Credentials**: Click "Download .csv" immediately
+2. **Note Access Keys**: Record Access Key ID and Secret Access Key
+3. **Secure Storage**: Store in password manager or secure location
+4. **Test Access**: Verify credentials work before distributing
 
-<img src="images/image-6.png" alt="Generate Access Keys" width="800"/>
-
-### Actions to Take:
-1. **Download Credentials**:
-   - Click "Download .csv" to save credentials securely
-   - Note the Access Key ID and Secret Access Key
-   - **This is the only time you can view the Secret Access Key**
-
-2. **Secure Storage**:
-   - Store credentials in a secure password manager
-   - Never commit access keys to version control
-   - Consider using AWS Secrets Manager for application credentials
-
-3. **Test Access** (recommended):
-   - Configure AWS CLI with new credentials
-   - Test basic AWS commands to verify access
-   - Confirm permissions work as expected
-
-4. **Send Credentials Securely**:
-   - Use secure channels to share credentials with users
-   - Consider temporary credentials for initial setup
-   - Provide setup instructions for AWS CLI/SDK
-
-### 🚨 Critical Security Actions:
-- **Download the CSV file immediately** - you cannot retrieve the secret key later
-- **Store credentials securely** - never share via email or unsecured channels
-- **Test the credentials** to ensure they work before distributing
-- **Document the user's purpose** for future reference
+**🚨 Security Warnings**:
+- **This is the ONLY time you can view the Secret Access Key**
+- Never share credentials via email or unsecured channels
+- Store credentials securely using proper credential management tools
+- Test credentials before distributing to ensure they work
 
 ---
-
-# 🔒 Security Best Practices
-
-## Access Key Management
-
-### ✅ **Do's**
-- **Rotate access keys regularly** (every 90 days minimum)
-- **Use IAM roles** instead of access keys when possible
-- **Store keys securely** using credential management tools
-- **Monitor key usage** through CloudTrail logs
-- **Apply least privilege** permissions
-
-### ❌ **Don'ts**
-- **Never hardcode** access keys in application code
-- **Don't share** access keys between users or applications
-- **Avoid long-term keys** for temporary access needs
-- **Don't commit** keys to version control systems
-- **Never expose** keys in logs or error messages
-
-## Monitoring and Compliance
-
-### Regular Security Audits
-- **Review user access** quarterly
-- **Check for unused credentials** and deactivate them
-- **Monitor suspicious activity** through CloudTrail
-- **Verify MFA compliance** for all human users
-- **Audit permission assignments** for appropriateness
-
-### Access Key Rotation Process
-1. **Create new access key** for the user
-2. **Update applications** to use new key
-3. **Test functionality** with new credentials
-4. **Delete old access key** after verification
-5. **Document the rotation** in your security logs
-
----
-
-# 🔧 Post-Creation Tasks
 
 ## For Human Users
-
-### Initial Setup
+### Initial Setup Checklist
 - [ ] Provide secure access to credentials
 - [ ] Send setup instructions for AWS CLI
 - [ ] Require MFA setup for console access
@@ -268,7 +191,6 @@ Obtain and securely store the user's access credentials.
 - [ ] Ensure compliance with security policies
 
 ## For Application Users
-
 ### Integration Setup
 - [ ] Configure application with new credentials
 - [ ] Test all required AWS service interactions
@@ -288,45 +210,30 @@ Obtain and securely store the user's access credentials.
 # 🚨 Troubleshooting Common Issues
 
 ## Access Denied Errors
-
-### Symptoms
+**Symptoms**:
 - API calls return "Access Denied" errors
 - User cannot perform expected actions
 - CLI commands fail with permission errors
 
-### Solutions
-1. **Check IAM policies** attached to user/groups
-2. **Verify resource-based policies** (S3 bucket policies, etc.)
-3. **Confirm no explicit DENY** statements
-4. **Test with IAM Policy Simulator**
-5. **Check service-specific quotas** and limits
+**Solutions**:
+1. Check IAM policies attached to user/groups
+2. Verify resource-based policies (S3 bucket policies, etc.)
+3. Confirm no explicit DENY statements
+4. Test with IAM Policy Simulator
+5. Check service-specific quotas and limits
 
 ## Invalid Credentials
-
-### Symptoms
+**Symptoms**:
 - "Invalid access key" errors
 - Authentication failures
 - CLI configuration issues
 
-### Solutions
-1. **Verify access key format** (correct copying)
-2. **Check if keys are active** in IAM console
-3. **Confirm region settings** in CLI/SDK
-4. **Test with temporary credentials** to isolate issue
-5. **Regenerate access keys** if necessary
-
-## MFA Requirements
-
-### Symptoms
-- Operations require MFA but user doesn't have it
-- Temporary credential issues
-- Console access problems
-
-### Solutions
-1. **Set up MFA device** for the user
-2. **Configure MFA in applications** using STS
-3. **Update IAM policies** to require MFA appropriately
-4. **Test MFA workflow** end-to-end
+**Solutions**:
+1. Verify access key format (correct copying)
+2. Check if keys are active in IAM console
+3. Confirm region settings in CLI/SDK
+4. Test with temporary credentials to isolate issue
+5. Regenerate access keys if necessary
 
 ---
 
