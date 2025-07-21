@@ -201,16 +201,8 @@ aws configure
 # Default output format: [Enter json, yaml, text, or table]
 ```
 
-### Option 2: Using AWS CLI profiles
-```bash
-# Configure a named profile
-aws configure --profile my-profile
 
-# Use the profile for AWS commands
-aws s3 ls --profile my-profile
-```
-
-### Option 3: Using environment variables
+### Option 2: Using environment variables
 ```bash
 # Set environment variables (Linux/Mac)
 export AWS_ACCESS_KEY_ID="your-access-key-id"
@@ -236,7 +228,6 @@ aws iam get-user
 ```
 
 **Configuration Best Practices**:
-- Use named profiles for multiple AWS accounts/users
 - Set appropriate default region for your use case
 - Choose output format that suits your workflow
 - Test configuration with simple, safe commands first
@@ -254,17 +245,9 @@ aws iam get-user
 
 ## Security Hardening
 - [ ] Set up credential rotation schedule (every 90 days)
-- [ ] Configure AWS CLI to use profiles instead of default credentials
 - [ ] Set up environment-specific configurations
 - [ ] Enable CloudTrail monitoring for API calls
 - [ ] Document approved CLI usage patterns
-
-## Ongoing Management
-- [ ] Monitor usage through CloudTrail logs
-- [ ] Regular access reviews (quarterly)
-- [ ] Update credentials when team members change roles
-- [ ] Audit CLI access patterns for security anomalies
-- [ ] Maintain documentation of who has CLI access
 
 ---
 
@@ -273,7 +256,6 @@ aws iam get-user
 ## Access Key Management
 
 ### ✅ **Do's**
-- **Use named profiles** for better organization and security
 - **Rotate access keys regularly** (every 90 days minimum)
 - **Store keys securely** using credential management tools
 - **Monitor key usage** through CloudTrail logs
@@ -299,12 +281,6 @@ aws configure --profile staging-account
 
 # Use specific profile for commands
 aws s3 ls --profile work-account
-```
-
-### Temporary Credentials
-```bash
-# Use STS to assume roles for temporary access
-aws sts assume-role --role-arn arn:aws:iam::123456789012:role/MyRole --role-session-name MySession --profile work-account
 ```
 
 ### Credential File Security
@@ -419,12 +395,5 @@ You have successfully created CLI access keys and configured AWS CLI! Here's wha
 4. **Set up monitoring** for CLI usage through CloudTrail
 5. **Document CLI usage patterns** for your team
 
-## 🔒 **Security Reminders**
-- Store access keys securely and never share them
-- Rotate credentials regularly (every 90 days)
-- Monitor CLI usage for unusual activity
-- Use profiles instead of default credentials when possible
-- Keep AWS CLI updated to the latest version
-- Never commit credentials to version control
 
 Your AWS CLI is now ready for secure programmatic access to AWS services!
