@@ -25,7 +25,7 @@ This comprehensive guide walks you through creating IAM groups in AWS. You'll le
 flowchart TD
     A[Start: AWS Console Login] -----> B[Navigate to IAM Dashboard]
     B -----> C[Access Groups Section]
-    C -----> D[Create Group with Policies]
+    C -----> D[Group Created with Policies]
     D -----> E[Review and Finalize Group]
     E -----> F[✅ IAM Group Creation Complete]
     
