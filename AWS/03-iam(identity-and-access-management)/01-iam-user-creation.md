@@ -24,19 +24,18 @@ This comprehensive guide walks you through creating an IAM user with programmati
 flowchart TD
     A[Start: AWS Console Login] -----> B[Navigate to IAM Dashboard]
     B -----> C[Access Users Section]
-    C -----> D[Click Create User]
-    D -----> E[Set Permissions/Policies]
-    E -----> F[Review and Create User]
-    F -----> G[Review User Configuration]
-    G -----> H[Add the Credentials]
-    H -----> I[✅ IAM User Creation Complete]
+    C -----> D[Set Permissions/Policies]
+    D -----> E[Review and Create User]
+    E -----> F[Review User Configuration]
+    F -----> G[Add the Credentials]
+    G -----> H[✅ IAM User Creation Complete]
     
     B@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-1.png", h: 936, w: 2086, pos: "t"}
     C@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-2.png", h: 1088, w: 2300, pos: "t"}
-    E@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-3.png", h: 1274, w: 2008, pos: "t"}
-    F@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-4.png", h: 708, w: 2002, pos: "t"}
-    G@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-5.png", h: 678, w: 2080, pos: "t"}
-    H@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-6.png", h: 1014, w: 1538, pos: "t"}
+    D@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-3.png", h: 1274, w: 2008, pos: "t"}
+    E@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-4.png", h: 708, w: 2002, pos: "t"}
+    F@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-5.png", h: 678, w: 2080, pos: "t"}
+    G@{ img: "https://raw.githubusercontent.com/artisantek/training-materials/master/AWS/03-iam(identity-and-access-management)/images/user-6.png", h: 1014, w: 1538, pos: "t"}
     
     style A fill:#e1f5fe,font-size:30px
     style B fill:#c8e6c9,font-size:30px
@@ -45,8 +44,7 @@ flowchart TD
     style E fill:#c8e6c9,font-size:30px
     style F fill:#c8e6c9,font-size:30px
     style G fill:#c8e6c9,font-size:30px
-    style H fill:#c8e6c9,font-size:30px
-    style I fill:#e8f5e8,font-size:30px
+    style H fill:#e8f5e8,font-size:30px
     
     %% Arrow styling - thick arrows
     linkStyle default stroke-width:10px
@@ -57,7 +55,6 @@ flowchart TD
     linkStyle 4 stroke-width:10px
     linkStyle 5 stroke-width:10px
     linkStyle 6 stroke-width:10px
-    linkStyle 7 stroke-width:10px
 ```
 
 ## 📋 Process Flow
@@ -66,11 +63,10 @@ flowchart TD
 1. **AWS Console Login** - Access your AWS account
 2. **Navigate to IAM Dashboard** - Go to IAM service 🔑 ✅
 3. **Access Users Section** - Click on Users in left navigation 🔑 ✅
-4. **Click Create User** - Initiate user creation process 🔑 ✅
-5. **Set Permissions/Policies** - Configure user permissions 🔑 ✅
-6. **Review and Create User** - Verify settings and create 🔑 ✅
-7. **Review User Configuration** - Verify all settings 🔑 ✅
-8. **Add the Credentials** - Create and download access keys 🔑 ✅
+4. **Set Permissions/Policies** - Configure user permissions 🔑 ✅
+5. **Review and Create User** - Verify settings and create 🔑 ✅
+6. **Review User Configuration** - Verify all settings 🔑 ✅
+7. **Add the Credentials** - Create and download access keys 🔑 ✅
 
 ---
 
@@ -120,22 +116,7 @@ flowchart TD
 
 ---
 
-## Step 4: Click Create User
-**Purpose**: Initiate the user creation process
-
-**Actions**:
-- Click the "Create user" or "Add user" button
-- Begin the user creation wizard
-- Prepare to enter user details
-
-**Key Considerations**:
-- Have your user details planned beforehand
-- Know what permissions the user will need
-- Understand the user's access requirements
-
----
-
-## Step 5: Set Permissions/Policies
+## Step 4: Set Permissions/Policies
 **Purpose**: Configure user permissions and assign appropriate policies
 
 **Key Configurations**:
@@ -152,7 +133,7 @@ flowchart TD
 
 ---
 
-## Step 6: Review and Create User
+## Step 5: Review and Create User
 **Purpose**: Verify all settings and create the user
 
 **Review Checklist**:
@@ -169,7 +150,7 @@ flowchart TD
 
 ---
 
-## Step 7: Review User Configuration
+## Step 6: Review User Configuration
 **Purpose**: Confirm user was created successfully and review final settings
 
 **Actions**:
@@ -185,7 +166,7 @@ flowchart TD
 
 ---
 
-## Step 8: Add the Credentials
+## Step 7: Add the Credentials
 **Purpose**: Generate and securely store the user's access credentials
 
 **Critical Actions**:
