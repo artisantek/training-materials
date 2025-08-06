@@ -24,7 +24,7 @@ JFrog Artifactory is a repository manager that serves as a central hub for stori
 
 1. **Download the Docker Compose package**
    ```bash
-   wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/docker/jfrog-artifactory-oss-[RELEASE]/jfrog-artifactory-oss-[RELEASE]-compose.tar.gz
+   wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/docker/jfrog-artifactory-oss/[RELEASE]/jfrog-artifactory-oss-[RELEASE]-compose.tar.gz
    ```
 
 2. **Extract the package**
