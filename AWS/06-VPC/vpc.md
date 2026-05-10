@@ -2,8 +2,6 @@
 
 ## Part 1: Why Does VPC Exist?
 
-###  Opening Hook
-
 *"Before we touch any AWS service, I want you to think about something. When you launch an EC2 instance, where does it actually RUN? Is it just floating in space? Does it share a network with every other AWS customer?"*
 
 *"In the early days of cloud (2006-2009), that was actually the case. All EC2 instances lived on a shared, flat network. Your instance, my instance, some random company's instance — all on the same network. If you misconfigured something, someone else could potentially reach your server."*
