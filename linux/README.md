@@ -50,7 +50,6 @@ linux/
 ## 💡 How to Use These Notes
 
 - These notes **supplement** the live training — they cover concepts where written reference material helps.
-- Commands and hands-on exercises are covered in class with separate notes.
 - Each topic has **Key Takeaways** at the bottom for quick revision.
 - Navigation links at the bottom of each page let you move through topics sequentially.
 
