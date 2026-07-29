@@ -89,6 +89,7 @@ If you forget the shebang, Linux will attempt to run the script using your **cur
 - If another user runs it while using `zsh`, it runs in `zsh`. 
 
 This is dangerous because a script that works perfectly in `bash` might fail or behave differently in `zsh` or `sh`. **Always use a shebang** to guarantee your script runs exactly how you intended, no matter who runs it.
+
 ---
 
 ## The Shell Prompt — Reading It
