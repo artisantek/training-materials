@@ -39,7 +39,7 @@ When you create a Kubernetes `Ingress` with the `alb` ingress class, the control
 
 ### How it Works
 
-1. **Ingress Creation:** You create an Ingress resource with `kubernetes.io/ingress.class: alb`.
+1. **Ingress Creation:** You create an Ingress resource with `spec.ingressClassName: alb` (or the legacy `kubernetes.io/ingress.class: alb` annotation).
 2. **ALB Provisioning:** The controller watches for this and creates an AWS ALB.
 3. **Target Groups:** It creates AWS Target Groups and registers your Kubernetes Pod IPs (or Node IPs) as targets.
 4. **Listeners & Rules:** It configures the ALB listeners and rules based on the paths defined in your Ingress manifest.
@@ -113,8 +113,9 @@ Here are the most critical annotations you need to know:
 | `alb.ingress.kubernetes.io/scheme` | Defines whether the ALB is public (`internet-facing`) or private (`internal`). | `internet-facing` |
 | `alb.ingress.kubernetes.io/target-type` | How traffic is routed. `instance` routes to Node IPs (requires NodePort). `ip` routes directly to Pod IPs (recommended for EKS). | `ip` |
 | `alb.ingress.kubernetes.io/listen-ports` | The ports the ALB should listen on. | `'[{"HTTP": 80}, {"HTTPS":443}]'` |
-| `alb.ingress.kubernetes.io/certificate-arn` | ARN of the ACM Certificate to use for SSL/HTTPS. | `arn:aws:acm:us-east-1:1234:certificate/...` |
-| `alb.ingress.kubernetes.io/ssl-redirect` | Automatically redirects HTTP (port 80) traffic to HTTPS (port 443). | `443` |
+| `alb.ingress.kubernetes.io/certificate-arn` | ARN of the ACM Certificate to use for HTTPS. **Must be in the same region as your EKS cluster.** | `arn:aws:acm:ap-south-1:1234:certificate/...` |
+| `alb.ingress.kubernetes.io/ssl-redirect` | Automatically redirects HTTP (port 80) traffic to HTTPS (port 443). | `'443'` |
+| `alb.ingress.kubernetes.io/healthcheck-path` | The path the ALB uses to check if your Pods are healthy. Crucial to avoid 502 Bad Gateway errors. | `/health` |
 | `alb.ingress.kubernetes.io/subnets` | Specific subnets where the ALB should be provisioned (can also use auto-discovery tags). | `subnet-0a1b2c3d, subnet-4e5f6g7h` |
 | `alb.ingress.kubernetes.io/security-groups` | Attach an existing AWS Security Group to the ALB. | `sg-0123456789abcdef0` |
 
@@ -131,9 +132,6 @@ metadata:
   name: my-app-ingress
   namespace: my-app-namespace
   annotations:
-    # Use the AWS ALB Controller
-    kubernetes.io/ingress.class: alb
-    
     # Make the ALB public
     alb.ingress.kubernetes.io/scheme: internet-facing
     
@@ -146,9 +144,14 @@ metadata:
     # Redirect HTTP to HTTPS
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     
-    # Attach ACM Certificate
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:123456789012:certificate/xyz-123
+    # Configure Health Checks to avoid 502 errors
+    alb.ingress.kubernetes.io/healthcheck-path: '/'
+    
+    # Attach ACM Certificate (MUST match the cluster's region, e.g., ap-south-1)
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:123456789012:certificate/xyz-123
 spec:
+  # Use the modern ingressClassName instead of the legacy annotation
+  ingressClassName: alb
   rules:
     - host: api.example.com
       http:

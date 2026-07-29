@@ -30,21 +30,23 @@ The Gateway API is the next generation of Ingress and Load Balancing in Kubernet
 
 ### Core Concepts (The Three Personas)
 
-The Gateway API splits routing into three separate resources, allowing different roles in an organization to manage only what they are responsible for:
+The Gateway API splits routing into three separate resources, allowing different roles in an organization to manage only what they are responsible for. Notice how the scopes (Cluster vs. Namespace) perfectly enforce this separation:
 
-1. **`GatewayClass` (Infrastructure Provider):** 
+1. **`GatewayClass` (Cluster-Scoped - Infrastructure Provider):** 
    - Defines *how* a Gateway is implemented by a controller (e.g., NGINX Gateway Fabric, AWS ALB, Traefik). 
-   - Typically managed by cloud providers or platform architects.
+   - Managed by cloud providers or platform architects across the whole cluster.
 
-2. **`Gateway` (Cluster Operator):**
+2. **`Gateway` (Namespaced - Cluster Operator):**
    - Represents the actual traffic handling infrastructure (like a Load Balancer instance). 
    - Defines the ports, listeners, and TLS configurations. 
-   - Managed by DevOps/SysAdmins.
+   - Managed by DevOps/SysAdmins in an infrastructure namespace.
 
-3. **`HTTPRoute` / `TCPRoute` (Application Developer):**
+3. **`HTTPRoute` (Namespaced - Application Developer):**
    - Defines the rules for routing traffic to specific backend services. 
    - Attaches to a parent `Gateway`.
-   - Managed directly by the developers building the application.
+   - Managed directly by the developers inside their own application's namespace.
+   
+*(Note: While `HTTPRoute` is generally available (GA) and heavily used, other protocols like `TCPRoute` and `UDPRoute` are still in experimental/beta channels and are actively evolving!)*
 
 > 💡 **Why this is better:** Unlike Ingress, `HTTPRoute` moves features like **Canary Deployments** (traffic weights) and **CORS** out of annotations and directly into the API `spec` rules.
 
@@ -120,6 +122,16 @@ spec:
 ```
 
 By applying this, traffic hitting the central Gateway will be intelligently routed to either `api-service` in the `backend-team` namespace or `web-service` in the `frontend-team` namespace. The infrastructure is completely decoupled from the application routing!
+
+### ⚠️ Gotcha: Cross-Namespace Backend References (`ReferenceGrant`)
+
+In the example above, both `backend-route` and `api-service` live in the **same namespace** (`backend-team`), so traffic routes perfectly.
+
+However, what if your `HTTPRoute` needs to route traffic to a Service in a **completely different namespace**? By default, the Gateway API **blocks this** for security reasons. 
+
+To allow a cross-namespace backend reference, the *target* namespace must explicitly create a `ReferenceGrant` resource that permits traffic from the Route's namespace. Always remember:
+- `allowedRoutes` (on the Gateway) controls who can attach a **Route to a Gateway**.
+- `ReferenceGrant` controls who can attach a **Route to a Backend Service**.
 
 ---
 
