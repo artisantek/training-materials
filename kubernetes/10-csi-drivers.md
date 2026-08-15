@@ -100,4 +100,4 @@ spec:
 
 ---
 
-**Next →** [Return to Main Menu](../README.md)
+**Next →** [Secrets Store CSI Driver (AWS Secrets Manager)](./11-secrets-store-csi-driver.md)
